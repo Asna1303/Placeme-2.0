@@ -2,7 +2,9 @@ import React from 'react'
 
 function loginpage() {
   return (
-    <div>loginpage</div>
+    <div>
+
+    </div>
   )
 }
 
