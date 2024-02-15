@@ -9,8 +9,12 @@ const Login=() =>{
   return (
    <Grid>
 <Paper elevation ={10} style={paperStyle}>
-    <Avatar> <LockOutlinedIcon /></Avatar>
-Sign in
+  <Grid align='center'>
+  <Avatar> <LockOutlinedIcon /></Avatar>
+  <h2>Sign in</h2>
+  </Grid>
+   
+
 </Paper>
    </Grid>
   )
