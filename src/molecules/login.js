@@ -7,10 +7,11 @@ import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Button from '@mui/material/Button';
-
+import Link from '@mui/material/Link';
 const Login=() =>{
     const paperStyle={padding :20, height : '70vh', width:280,margin:"20px auto"}
     const avatarStyle={backgroundColor:'green'}
+    const buttonStyle={margin:'8px 0'}
   return (
    <Grid>
 <Paper elevation ={10} style={paperStyle}>
@@ -24,9 +25,25 @@ const Login=() =>{
                     <FormControlLabel control={<Checkbox defaultChecked />} label="Remember me" />
                 </Grid>
   
-   <Button variant="contained" type='submit' color='primary' fullWidth>LOG IN</Button>
-
-
+   <Button variant="contained" type='submit' style={buttonStyle} color='primary' fullWidth>LOG IN</Button>
+   <Grid container justifyContent="flex-start">
+<typography >
+<Link href="a" >
+ 
+  Forgot password
+</Link>
+</typography> 
+</Grid>
+<br></br>
+<Grid container justifyContent="flex-start">
+<typography>  Do you have an account?
+<Link href="a" >
+ Sign up!
+ 
+</Link>
+</typography>
+</Grid>
+   
 </Paper>
    </Grid>
   )
