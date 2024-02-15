@@ -16,6 +16,8 @@ const Login=() =>{
   <h2>Sign in</h2>
   </Grid>
   <TextField id="standard-basic" label="Username" variant="standard" placeholder="Enter your name" fullWidth/>
+  <TextField id="standard-basic" label="Password" variant="standard" placeholder="Enter your password" type='password' fullWidth/>
+   
    
 
 </Paper>
