@@ -4,6 +4,8 @@ import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import TextField from '@mui/material/TextField';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 const Login=() =>{
     const paperStyle={padding :20, height : '70vh', width:280,margin:"20px auto"}
@@ -15,9 +17,11 @@ const Login=() =>{
   <Avatar style={avatarStyle}> <LockOutlinedIcon /></Avatar>
   <h2>Sign in</h2>
   </Grid>
-  <TextField id="standard-basic" label="Username" variant="standard" placeholder="Enter your name" fullWidth/>
-  <TextField id="standard-basic" label="Password" variant="standard" placeholder="Enter your password" type='password' fullWidth/>
-   
+  <TextField id="standard-basic" label="Username*" variant="standard" placeholder="Enter your name" fullWidth/>
+  <TextField id="standard-basic" label="Password*" variant="standard" placeholder="Enter your password" type='password' fullWidth/>
+  <Grid container justifyContent="flex-start" alignItems="center">
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Remember me" />
+                </Grid>
    
 
 </Paper>
