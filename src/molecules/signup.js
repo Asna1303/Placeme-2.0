@@ -12,9 +12,10 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
 import { Typography } from '@mui/material';
+import Checkbox from '@mui/material/Checkbox';
 
 const Signup = () => {
-  const paperStyle = { padding: 20, height: '70vh', width: 280, margin: '20px auto' };
+  const paperStyle = { padding: 20, height: '70vh', width: 300, margin: '20px auto' };
   const avatarStyle = { backgroundColor: 'green' };
 const headerStyle={margin:0}
 const buttonStyle={margin:'8px 0'}
@@ -53,6 +54,9 @@ const marginTop={marginTop:5}
   <TextField id="standard-basic" label="Password*" variant="standard" placeholder="Enter your password" fullWidth/>
   
   <TextField id="standard-basic" label="Confirm password*" variant="standard" placeholder="Enter your password" fullWidth/>
+  
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="I accept the terms and conditions" />
+                
   <Button variant="contained" type='submit' style={buttonStyle} color='primary' fullWidth>SIGN UP</Button>
         </form>
       </Paper>
