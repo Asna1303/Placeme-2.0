@@ -4,6 +4,7 @@ import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 import { Typography } from '@mui/material';
 
@@ -11,6 +12,7 @@ const Signup = () => {
   const paperStyle = { padding: 20, height: '70vh', width: 280, margin: '20px auto' };
   const avatarStyle = { backgroundColor: 'green' };
 const headerStyle={margin:0}
+const buttonStyle={margin:'8px 0'}
   return (
     <Grid container justifyContent="center" alignItems="center">
       <Paper elevation={20} style={paperStyle}>
@@ -32,6 +34,7 @@ const headerStyle={margin:0}
   <TextField id="standard-basic" label="Password*" variant="standard" placeholder="Enter your password" fullWidth/>
   
   <TextField id="standard-basic" label="Confirm password*" variant="standard" placeholder="Enter your password" fullWidth/>
+  <Button variant="contained" type='submit' style={buttonStyle} color='primary' fullWidth>SIGN UP</Button>
         </form>
       </Paper>
     </Grid>
