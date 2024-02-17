@@ -8,7 +8,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
-import { Formik } from 'formik'; // Note the correct import statement
+import { Formik  ,Field} from 'formik'; // Note the correct import statement
 
 const Login = () => {
     const paperStyle = { padding: 20, height: '70vh', width: 280, margin: '20px auto' };
@@ -31,7 +31,7 @@ const Login = () => {
                 >
                     {({ values, handleChange, handleSubmit }) => (
                         <form onSubmit={handleSubmit}>
-                            <TextField
+                            <Field as={TextField}
                                 id="username"
                                 name="username"
                                 label="Username*"
@@ -41,7 +41,7 @@ const Login = () => {
                                 value={values.username}
                                 onChange={handleChange}
                             />
-                            <TextField
+                            <Field as={TextField}
                                 id="password"
                                 name="password"
                                 label="Password*"
@@ -53,7 +53,7 @@ const Login = () => {
                                 onChange={handleChange}
                             />
                             <Grid container justifyContent="flex-start" alignItems="center">
-                                <FormControlLabel
+                                <Field as={FormControlLabel}
                                     control={
                                         <Checkbox
                                             id="rememberMe"
