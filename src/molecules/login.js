@@ -28,7 +28,7 @@ const Login=() =>{
    <Button variant="contained" type='submit' style={buttonStyle} color='primary' fullWidth>LOG IN</Button>
    <Grid container justifyContent="flex-start">
 <typography >
-<Link href="a" >
+<Link href="forgetpassword" >
  
   Forgot password
 </Link>
