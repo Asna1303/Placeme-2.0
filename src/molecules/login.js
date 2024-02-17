@@ -22,7 +22,7 @@ const Login = ({ handleChange }) => {
       remember: false
   }
   const validationSchema = Yup.object().shape({
-      username: Yup.string().email('please enter valid email').required("Required"),
+      username: Yup.string().email('please enter valid email id').required("Required"),
       password: Yup.string().required("Required")
   })
   const onSubmit = (values, props) => {
@@ -39,7 +39,7 @@ const Login = ({ handleChange }) => {
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
                     <Avatar style={avatarStyle}><LockOutlinedIcon /></Avatar>
-                    <h2>Log in</h2>
+                    <h2>Sign In</h2>
                 </Grid>
                 <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                     {(props) => (
