@@ -8,73 +8,62 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
-import { Formik  ,Field} from 'formik'; // Note the correct import statement
+import {  Formik, Form, Field, ErrorMessage} from 'formik'; // Note the correct import statement
+import * as Yup from 'yup'
 
-const Login = () => {
-    const paperStyle = { padding: 20, height: '70vh', width: 280, margin: '20px auto' };
-    const avatarStyle = { backgroundColor: 'green' };
-    const buttonStyle = { margin: '8px 0' };
+const Login = ({ handleChange }) => {
 
-    return (
+  const paperStyle = { padding: 20, height: '73vh', width: 300, margin: "0 auto" }
+  const avatarStyle = { backgroundColor: '#1bbd7e' }
+  const btnstyle = { margin: '8px 0' }
+  const initialValues = {
+      username: '',
+      password: '',
+      remember: false
+  }
+  const validationSchema = Yup.object().shape({
+      username: Yup.string().email('please enter valid email').required("Required"),
+      password: Yup.string().required("Required")
+  })
+  const onSubmit = (values, props) => {
+      console.log(values)
+      setTimeout(() => {
+          props.resetForm()
+          props.setSubmitting(false)
+      }, 2000)
+
+  }
+  return (
+
         <Grid container justifyContent="center">
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
                     <Avatar style={avatarStyle}><LockOutlinedIcon /></Avatar>
                     <h2>Log in</h2>
                 </Grid>
-                <Formik
-                    initialValues={{ username: '', password: '', rememberMe: false }}
-                    onSubmit={(values) => {
-                        // Your form submission logic goes here
-                        console.log(values);
-                    }}
-                >
-                    {({ values, handleChange, handleSubmit }) => (
-                        <form onSubmit={handleSubmit}>
-                            <Field as={TextField}
-                                id="username"
-                                name="username"
-                                label="Username*"
-                                variant="standard"
-                                placeholder="Enter your name"
-                                fullWidth
-                                value={values.username}
-                                onChange={handleChange}
+                <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+                    {(props) => (
+                        <Form>
+                            <Field as={TextField} label='Username' name="username"
+                                placeholder='Enter username' fullWidth required
+                                helperText={<ErrorMessage name="username" />}
                             />
-                            <Field as={TextField}
-                                id="password"
-                                name="password"
-                                label="Password*"
-                                variant="standard"
-                                placeholder="Enter your password"
-                                type="password"
-                                fullWidth
-                                value={values.password}
-                                onChange={handleChange}
+                            <Field as={TextField} label='Password' name="password"
+                                placeholder='Enter password' type='password' fullWidth required
+                                helperText={<ErrorMessage name="password" />} />
+                            <Field as={FormControlLabel}
+                                name='remember'
+                                control={
+                                    <Checkbox
+                                        color="primary"
+                                    />
+                                }
+                                label="Remember me"
                             />
-                            <Grid container justifyContent="flex-start" alignItems="center">
-                                <Field as={FormControlLabel}
-                                    control={
-                                        <Checkbox
-                                            id="rememberMe"
-                                            name="rememberMe"
-                                            defaultChecked={values.rememberMe}
-                                            onChange={handleChange}
-                                        />
-                                    }
-                                    label="Remember me"
-                                />
-                            </Grid>
-                            <Button
-                                variant="contained"
-                                type="submit"
-                                style={buttonStyle}
-                                color="primary"
-                                fullWidth
-                            >
-                                LOG IN
-                            </Button>
-                        </form>
+                            <Button type='submit' color='primary' variant="contained" disabled={props.isSubmitting}
+                                style={btnstyle} fullWidth>{props.isSubmitting ? "Loading" : "Sign in"}</Button>
+
+                        </Form>
                     )}
                 </Formik>
                 <Grid container justifyContent="flex-start">
