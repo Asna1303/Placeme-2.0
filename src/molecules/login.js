@@ -44,6 +44,7 @@ const Login = ({ handleChange }) => {
                 <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                     {(props) => (
                         <Form>
+                          {console.log(props)}
                             <Field as={TextField} label='Username' name="username"
                                 placeholder='Enter username' fullWidth required
                                 helperText={<ErrorMessage name="username" />}
